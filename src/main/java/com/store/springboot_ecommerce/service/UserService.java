@@ -1,8 +1,8 @@
 package com.store.springboot_ecommerce.service;
 
 
-//import java.time.LocalDateTime;
-//import java.util.Optional;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,43 +24,11 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService ;
     }
-/* 
- public User register(String userName , String email , String password) {
-        // check if email is exist
-        if(userRepo.findByEmail(email).isPresent()){
-            throw new RuntimeException("Email already exist");
-        }
 
-        //check if username is exist
-        if(userRepo.findByUserName(userName).isPresent()){
-            throw new RuntimeException("Username is found");
-        }
-
-        // bcrypt password
-        String hashedPassword = passwordEncoder.encode(password);
-
-        // create user entity and set fields
-
-        User user = new User();
-        user.setUserName(userName);
-        user.setEmail(email);
-        user.setPassword(hashedPassword);
-        user.setRole("user");
-        user.setCreatedAt(LocalDateTime.now());
-
-        // save user in db
-        return userRepo.save(user) ;
-    }
-
-*/
 
     public void register(RegisterReq req){
 
         boolean exists = userRepo.findByEmail(req.getEmail()).isPresent();
-
-       // boolean exists = userRepo.existsByEmail(email);
-
-       // userRepo.existsByEmail(req.getEmail())
 
         if(exists){
             throw new RuntimeException("Email already exist");
@@ -73,20 +41,6 @@ public class UserService {
         userRepo.save(user);
 
     }
-
-
-    /*
-    public boolean loginUser(String userName , String password){
-        Optional<User> userOptional = userRepo.findByUserName(userName);
-        if(userOptional.isEmpty()){
-            return false;
-        }
-
-        User user = userOptional.get();
-        return passwordEncoder.matches(password, user.getPassword());
-
-    }
-    */
 
     public AuthRes login(LoginReq req){
         User user = userRepo.findByEmail(req.getEmail())
@@ -103,6 +57,13 @@ public class UserService {
     }
 
 
+    public User getLoggedUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+        System.out.println("Username from Token: " + email);
+        return userRepo.findByEmail(email)
+                       .orElseThrow(() -> new RuntimeException("user not found"));
+    }
    
 
     

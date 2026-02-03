@@ -1,0 +1,665 @@
+[
+    {
+        "name": "iphone 16 pro max",
+        "description": "Natural Titanium, 256GB",
+        "price": 1800.00,
+        "quantity": 10,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 1
+    },
+    {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "Phantom Black, 512GB",
+        "price": 1400.00,
+        "quantity": 8,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 2
+    },
+    {
+        "name": "Apple Watch Series 9",
+        "description": "GPS + Cellular, 45mm, Silver Aluminum",
+        "price": 499.00,
+        "quantity": 15,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 3
+    },
+    {
+        "name": "Samsung Galaxy Watch 6",
+        "description": "Bluetooth, 44mm, Phantom Black",
+        "price": 399.00,
+        "quantity": 10,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 4
+    },
+    {
+        "name": "Amazon Echo (5th Gen)",
+        "description": "Smart Speaker with Alexa, Charcoal",
+        "price": 99.00,
+        "quantity": 30,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 5
+    },
+    {
+        "name": "Nintendo Switch OLED",
+        "description": "Neon Blue & Red, 64GB",
+        "price": 349.00,
+        "quantity": 14,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 6
+    },
+    {
+        "name": "Xbox Series X",
+        "description": "1TB SSD, Black",
+        "price": 499.00,
+        "quantity": 7,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 7
+    },
+    {
+        "name": "Samsung Galaxy Buds 3",
+        "description": "Wireless Earbuds, Black",
+        "price": 149.00,
+        "quantity": 25,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 8
+    },
+    {
+        "name": "Logitech MX Master 3",
+        "description": "Wireless Mouse, Graphite",
+        "price": 99.00,
+        "quantity": 30,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 9
+    },
+    {
+        "name": "GoPro HERO12 Black",
+        "description": "Action Camera, 5.3K, Waterproof",
+        "price": 499.00,
+        "quantity": 12,
+        "category": {
+            "name": "Electronics",
+            "description": "All electronic devices and gadgets",
+            "categoryId": 1,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 10
+    },
+    {
+        "name": "Men's Classic T-Shirt",
+        "description": "100% Cotton, Slim Fit, Navy Blue",
+        "price": 25.00,
+        "quantity": 50,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 11
+    },
+    {
+        "name": "Women's Casual Blouse",
+        "description": "Lightweight Fabric, Floral Print, Size M",
+        "price": 35.00,
+        "quantity": 40,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 12
+    },
+    {
+        "name": "Men's Jeans",
+        "description": "Denim, Straight Fit, Dark Blue",
+        "price": 60.00,
+        "quantity": 30,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 13
+    },
+    {
+        "name": "Women's Skinny Jeans",
+        "description": "Stretch Denim, Black, Size 8",
+        "price": 55.00,
+        "quantity": 25,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 14
+    },
+    {
+        "name": "Men's Hoodie",
+        "description": "Fleece, Pullover, Gray, Size L",
+        "price": 45.00,
+        "quantity": 35,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 15
+    },
+    {
+        "name": "Women's Hoodie",
+        "description": "Soft Cotton, Zip-Up, Pink, Size M",
+        "price": 50.00,
+        "quantity": 30,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 16
+    },
+    {
+        "name": "Men's Formal Shirt",
+        "description": "Slim Fit, White, 100% Cotton",
+        "price": 40.00,
+        "quantity": 20,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 17
+    },
+    {
+        "name": "Women's Evening Dress",
+        "description": "Silk Blend, Red, Size M",
+        "price": 120.00,
+        "quantity": 10,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 18
+    },
+    {
+        "name": "Men's Chinos",
+        "description": "Beige, Slim Fit, Cotton Blend",
+        "price": 50.00,
+        "quantity": 25,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 19
+    },
+    {
+        "name": "Women's Skirt",
+        "description": "Pleated, Midi Length, Navy Blue",
+        "price": 45.00,
+        "quantity": 20,
+        "category": {
+            "name": "Clothing",
+            "description": "Stylish and comfortable clothing for everyday and special occasions",
+            "categoryId": 2,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 20
+    },
+    {
+        "name": "Men's Running Shoes",
+        "description": "Lightweight, Breathable, Size 10, Black",
+        "price": 80.00,
+        "quantity": 40,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 21
+    },
+    {
+        "name": "Women's Running Shoes",
+        "description": "Breathable, Pink, Size 7",
+        "price": 75.00,
+        "quantity": 35,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 22
+    },
+    {
+        "name": "Men's Leather Formal Shoes",
+        "description": "Black, Oxford Style, Genuine Leather, Size 42",
+        "price": 120.00,
+        "quantity": 20,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 23
+    },
+    {
+        "name": "Women's Leather Formal Shoes",
+        "description": "Beige, High Heel, PU Leather, Size 39",
+        "price": 100.00,
+        "quantity": 15,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 24
+    },
+    {
+        "name": "Men's Casual Sneakers",
+        "description": "White, Canvas, Size 41",
+        "price": 65.00,
+        "quantity": 30,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 25
+    },
+    {
+        "name": "Women's Casual Sneakers",
+        "description": "Light Blue, Canvas, Size 38",
+        "price": 60.00,
+        "quantity": 25,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 26
+    },
+    {
+        "name": "Men's Sandals",
+        "description": "Brown Leather, Open Toe, Size 43",
+        "price": 40.00,
+        "quantity": 20,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 27
+    },
+    {
+        "name": "Women's Sandals",
+        "description": "Flat, Strappy, Beige, Size 37",
+        "price": 35.00,
+        "quantity": 25,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 28
+    },
+    {
+        "name": "Men's Boots",
+        "description": "Ankle Boots, Brown Leather, Size 42",
+        "price": 150.00,
+        "quantity": 12,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 29
+    },
+    {
+        "name": "Women's Boots",
+        "description": "Knee-High, Black, Faux Leather, Size 39",
+        "price": 140.00,
+        "quantity": 10,
+        "category": {
+            "name": "Footwear",
+            "description": "Shoes, sneakers, and sandals for all ages and styles",
+            "categoryId": 3,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 30
+    },
+    {
+        "name": "Yoga Mat",
+        "description": "Non-slip, 6mm thick, Blue",
+        "price": 25.00,
+        "quantity": 50,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 31
+    },
+    {
+        "name": "Dumbbell Set",
+        "description": "Adjustable, 2–20 kg, Rubber Coated",
+        "price": 120.00,
+        "quantity": 30,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 32
+    },
+    {
+        "name": "Treadmill",
+        "description": "Foldable, 12-speed, LCD Display",
+        "price": 800.00,
+        "quantity": 10,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 33
+    },
+    {
+        "name": "Resistance Bands Set",
+        "description": "5 Bands with Different Resistance Levels",
+        "price": 35.00,
+        "quantity": 60,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 34
+    },
+    {
+        "name": "Kettlebell",
+        "description": "Cast Iron, 12 kg, Black",
+        "price": 50.00,
+        "quantity": 25,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 35
+    },
+    {
+        "name": "Jump Rope",
+        "description": "Adjustable, PVC Rope with Foam Handles",
+        "price": 15.00,
+        "quantity": 100,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 36
+    },
+    {
+        "name": "Pull-Up Bar",
+        "description": "Doorway Mounted, Steel, Adjustable Width",
+        "price": 45.00,
+        "quantity": 20,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 37
+    },
+    {
+        "name": "Exercise Ball",
+        "description": "Anti-Burst, 65cm Diameter, Gray",
+        "price": 30.00,
+        "quantity": 40,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 38
+    },
+    {
+        "name": "Men's Gym Shorts",
+        "description": "Breathable, Black, Size M",
+        "price": 20.00,
+        "quantity": 60,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 39
+    },
+    {
+        "name": "Women's Gym Leggings",
+        "description": "High-Waist, Stretchable, Black, Size S",
+        "price": 25.00,
+        "quantity": 50,
+        "category": {
+            "name": "Sports & Fitness",
+            "description": "Fitness equipment, sportswear, and workout accessories",
+            "categoryId": 4,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 40
+    },
+    {
+        "name": "Gaming Desktop PC",
+        "description": "Intel i7, 16GB RAM, 512GB SSD, NVIDIA RTX 3060",
+        "price": 1500.00,
+        "quantity": 15,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 41
+    },
+    {
+        "name": "Mechanical Keyboard",
+        "description": "RGB Backlit, Blue Switches, USB-C",
+        "price": 120.00,
+        "quantity": 50,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 42
+    },
+    {
+        "name": "Wireless Mouse",
+        "description": "Ergonomic, 16000 DPI, Black",
+        "price": 45.00,
+        "quantity": 70,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 43
+    },
+    {
+        "name": "27-inch Monitor",
+        "description": "4K UHD, IPS Panel, 75Hz Refresh Rate",
+        "price": 300.00,
+        "quantity": 30,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 44
+    },
+    {
+        "name": "External Hard Drive",
+        "description": "2TB, USB 3.0, Portable, Black",
+        "price": 80.00,
+        "quantity": 60,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 45
+    },
+    {
+        "name": "Gaming Headset",
+        "description": "Surround Sound, Noise-Cancelling Mic, RGB Lighting",
+        "price": 90.00,
+        "quantity": 40,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 46
+    },
+    {
+        "name": "Laptop Cooling Pad",
+        "description": "Dual Fans, Adjustable Height, USB Powered",
+        "price": 25.00,
+        "quantity": 50,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 47
+    },
+    {
+        "name": "USB-C Hub",
+        "description": "7-in-1, HDMI, SD Card, 3x USB 3.0",
+        "price": 35.00,
+        "quantity": 80,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 48
+    },
+    {
+        "name": "Wireless Router",
+        "description": "Dual Band, AC1200, Gigabit Ethernet",
+        "price": 100.00,
+        "quantity": 25,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 49
+    },
+    {
+        "name": "Graphics Tablet",
+        "description": "Pressure Sensitive, 8192 Levels, USB-C",
+        "price": 200.00,
+        "quantity": 20,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 50
+    },
+    {
+        "name": "Graphics Tablet",
+        "description": "Pressure Sensitive, 8192 Levels, USB-C",
+        "price": 200.00,
+        "quantity": 20,
+        "category": {
+            "name": "Computers & Accessories",
+            "description": "Laptops, desktops, and computer accessories",
+            "categoryId": 5,
+            "hibernateLazyInitializer": {}
+        },
+        "id": 51
+    }
+]

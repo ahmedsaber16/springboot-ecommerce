@@ -1,0 +1,25 @@
+localhost:8080/api/auth/register
+
+{
+    "userName": "mohamed",
+    "email": "mohamed@com",
+    "password": 123456
+}
+
+{
+    "userName": "ahmed",
+    "email": "ahmmmed@com",
+    "password": 654123
+}
+
+
+
+localhost:8080/api/auth/login
+{
+
+ "email": "ahmmmed@com",
+ "password": 654123
+
+}
+
+

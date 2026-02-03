@@ -1,13 +1,11 @@
 package com.store.springboot_ecommerce.config;
 
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.*;
-
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,8 +16,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.store.springboot_ecommerce.model.User;
 import com.store.springboot_ecommerce.repository.UserRepo;
 import com.store.springboot_ecommerce.service.JwtService;
-
-
 
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
@@ -58,7 +54,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
             if (SecurityContextHolder.getContext().getAuthentication() == null) {
                 User user = userRepo.findByEmail(email).orElse(null);
-
                 if (user != null && jwtService.isTokenValid(token, user)) {
                     UsernamePasswordAuthenticationToken authToken =
                             new UsernamePasswordAuthenticationToken(
@@ -66,6 +61,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                                     null,
                                     List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()))
                             );
+                            authToken.setDetails(new org.springframework.security.web.authentication.WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 } else {
                     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
