@@ -31,15 +31,15 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-             
+
                 .requestMatchers("/api/auth/**" , "/error").permitAll() // مفتوح للكل
-                
+
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")   // بس ADMIN
                 .requestMatchers("/api/user/**").hasAnyRole("USER","ADMIN") // USER أو ADMIN
                 .requestMatchers("/api/products/**").permitAll()
                 .requestMatchers("/api/orders/**").authenticated()
                 .requestMatchers("/api/cart/**").authenticated()
-              
+
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

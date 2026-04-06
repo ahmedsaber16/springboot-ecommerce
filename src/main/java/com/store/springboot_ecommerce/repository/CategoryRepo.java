@@ -12,4 +12,6 @@ import com.store.springboot_ecommerce.model.Product;
 public interface CategoryRepo extends JpaRepository<Category , Long>{
 
      Optional<Product> findByCategoryId(Long id);
+
+     Optional<Category> findByName(String categoryName);
 }

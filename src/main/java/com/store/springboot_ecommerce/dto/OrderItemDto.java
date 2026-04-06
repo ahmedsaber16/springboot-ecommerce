@@ -1,44 +1,27 @@
 package com.store.springboot_ecommerce.dto;
 
+import java.math.BigDecimal;
+
+import com.store.springboot_ecommerce.model.OrderItems;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderItemDto {
     private long id;
     private String productName;
     private int quantity ;
-    private double price;
+    private BigDecimal price;
 
-    
-    public OrderItemDto() {
-    }
-    public OrderItemDto(long id, String productName, int quantity, double price) {
-        this.id = id;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.price = price;
-    }
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
-    public String getProductName() {
-        return productName;
-    }
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-    public int getQuantity() {
-        return quantity;
-    }
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-    public double getPrice() {
-        return price;
-    }
-    public void setPrice(double price) {
-        this.price = price;
+    public OrderItemDto(OrderItems item) {
+        this.id = item.getId();
+        this.productName = item.getProduct().getName();
+        this.quantity = item.getQuantity();
+        this.price = item.getPriceAtPurchase();
     }
 
-    
 }

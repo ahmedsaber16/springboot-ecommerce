@@ -1,35 +1,36 @@
 package com.store.springboot_ecommerce.dto;
 
+import java.math.BigDecimal;
 
+import com.store.springboot_ecommerce.model.CartItem;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CartItemDto {
-        private String name;
-        private double price ;
+        private Long cartItemId;
+        private Long productId;
+        private String productName;
+
+        private BigDecimal productPrice ;
+        private BigDecimal totalPrice;
         private int quantity;
-        private long productId;
-        
-        public String getName() {
-            return name;
+
+        public CartItemDto(CartItem item) {
+                this.cartItemId = item.getId();
+                this.productId = item.getProduct().getId();
+                this.productName = item.getProduct().getName();
+                this.productPrice = item.getProduct().getPrice();
+                this.quantity = item.getQuantity();
+                this.totalPrice = item.getProduct().getPrice().multiply(BigDecimal.valueOf(item.getQuantity()));
+
         }
-        public void setName(String name) {
-            this.name = name;
-        }
-         public Long getProductId() {
-            return productId;
-        }
-        public void setProductId(Long productId) {
-            this.productId = productId;
-        }
-        public double getPrice() {
-            return price;
-        }
-        public void setPrice(double price) {
-            this.price = price;
-        }
-        public int getQuantity() {
-            return quantity;
-        }
-        public void setQuantity(int quantity) {
-            this.quantity = quantity;
-        }
+
+
+
+
 }

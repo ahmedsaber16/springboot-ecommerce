@@ -13,7 +13,7 @@ import jakarta.transaction.Transactional;
 
 @Repository
 public interface CartItemRepo extends JpaRepository<CartItem , Long> {
-    
+
     CartItem findByUserAndProduct( User user , Product product );
     List<CartItem> findByUser(User user);
     @Transactional

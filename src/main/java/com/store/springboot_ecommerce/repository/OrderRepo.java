@@ -10,5 +10,5 @@ import com.store.springboot_ecommerce.model.User;
 
 @Repository
 public interface OrderRepo  extends JpaRepository<Order , Long>{
-    List<Order> findByUser(User user); 
+    List<Order> findByUser(User user);
 }

@@ -1,7 +1,7 @@
 package com.store.springboot_ecommerce.dto;
 
 public class AuthRes {
-    
+
         private String token ;
         private String userName ;
         private String role ;
@@ -30,5 +30,5 @@ public class AuthRes {
         public void setRole(String role) {
                 this.role = role;
         }
- 
+
 }

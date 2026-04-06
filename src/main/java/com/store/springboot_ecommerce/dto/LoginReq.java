@@ -1,11 +1,11 @@
 package com.store.springboot_ecommerce.dto;
 
 public class LoginReq {
-    
+
     private String email;
     private String password;
 
-    
+
     public LoginReq(String email, String password) {
         this.email = email;
         this.password = password;
@@ -15,7 +15,7 @@ public class LoginReq {
     public LoginReq() {
     }
 
-    
+
     public String getEmail() {
         return email;
     }

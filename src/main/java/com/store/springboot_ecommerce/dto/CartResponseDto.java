@@ -1,37 +1,19 @@
 package com.store.springboot_ecommerce.dto;
 
+import java.math.BigDecimal;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CartResponseDto {
     private String userName;
     private String email;
     private List<CartItemDto> items;
-    private double totalCartPrice;
+    private BigDecimal totalCartPrice;
 
 
-    
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public List<CartItemDto> getItems() {
-        return items;
-    }
-    public void setItems(List<CartItemDto> items) {
-        this.items = items;
-    }
-    public double getTotalCartPrice() {
-        return totalCartPrice;
-    }
-    public void setTotalCartPrice(double totalCartPrice) {
-        this.totalCartPrice = totalCartPrice;
-    } 
 }

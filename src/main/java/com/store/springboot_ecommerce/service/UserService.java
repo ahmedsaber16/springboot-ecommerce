@@ -13,17 +13,16 @@ import com.store.springboot_ecommerce.dto.RegisterReq;
 import com.store.springboot_ecommerce.model.User;
 import com.store.springboot_ecommerce.repository.UserRepo;
 
-@Service
-public class UserService {
-    private UserRepo userRepo ;
-    private PasswordEncoder passwordEncoder;
-    private JwtService jwtService;
+import lombok.RequiredArgsConstructor;
 
-     public UserService(UserRepo userRepo, PasswordEncoder passwordEncoder , JwtService jwtService) {
-        this.userRepo = userRepo;
-        this.passwordEncoder = passwordEncoder;
-        this.jwtService = jwtService ;
-    }
+@Service
+@RequiredArgsConstructor
+public class UserService {
+    private final UserRepo userRepo ;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+
+
 
 
     public void register(RegisterReq req){
@@ -32,7 +31,7 @@ public class UserService {
 
         if(exists){
             throw new RuntimeException("Email already exist");
-        }    
+        }
         User user = new User();
         user.setEmail(req.getEmail());
         user.setUserName(req.getUserName());
@@ -62,10 +61,7 @@ public class UserService {
         String email = authentication.getName();
         System.out.println("Username from Token: " + email);
         return userRepo.findByEmail(email)
-                       .orElseThrow(() -> new RuntimeException("user not found"));
+                    .orElseThrow(() -> new RuntimeException("user not found"));
     }
-   
 
-    
-    
 }

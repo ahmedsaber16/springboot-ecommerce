@@ -1,6 +1,6 @@
 package com.store.springboot_ecommerce.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,22 +14,24 @@ import com.store.springboot_ecommerce.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
-   @Autowired
-   private UserService userService ;
 
-   @Autowired
-   private OrderService orderService;
+   private final UserService userService ;
+
+
+   private final OrderService orderService;
 
    @PostMapping("/checkout")
    public ResponseEntity<OrderResponseDto> checkout() {
-        User user = userService.getLoggedUser();
-        OrderResponseDto responseDto = orderService.placeOrder(user);
-       
-       return new ResponseEntity<>(responseDto , HttpStatus.CREATED);
+         User user = userService.getLoggedUser();
+         OrderResponseDto responseDto = orderService.placeOrder(user);
+
+      return new ResponseEntity<>(responseDto , HttpStatus.CREATED);
    }
-   
+
 }

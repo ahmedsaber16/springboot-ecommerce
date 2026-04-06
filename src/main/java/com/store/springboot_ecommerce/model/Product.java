@@ -12,15 +12,21 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "products")
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "product")
 public class Product {
-   
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id ;
-    
+    private Long id ;
+
     @Column(nullable = false)
     private String name ;
     private String description ;
@@ -32,64 +38,4 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
-
-
-
-
-
-    public Product(String name, String description, BigDecimal price, @Min(0) int stock, Category category  ) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.category = category;
-        this.stock = stock ;
-    }
-
-    public Product() {
-        }
-
-
-     public Long getId() {
-        return id;
-    }    
-
-    public String getName() {
-        return name;
-    }
-   public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-   public void setDescription(String description) {
-        this.description = description;
-    }
-   public BigDecimal getPrice() {
-        return price;
-    }
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-     public int getStock() {
-        return stock;
-    }
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-
-    
-
-
 }

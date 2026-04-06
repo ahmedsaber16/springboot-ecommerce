@@ -1,10 +1,11 @@
 package com.store.springboot_ecommerce.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.store.springboot_ecommerce.model.Order;
@@ -17,37 +18,37 @@ import com.store.springboot_ecommerce.model.User;
 
 import com.store.springboot_ecommerce.repository.CartItemRepo;
 import com.store.springboot_ecommerce.repository.OrderRepo;
-
+import com.store.springboot_ecommerce.repository.ProductRepo;
 
 import jakarta.transaction.Transactional;
-
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
-    @Autowired
-    private OrderRepo orderRepo ;
 
-    @Autowired
-    private CartItemRepo cartItemRepo;
+    private final OrderRepo orderRepo ;
 
-    @Autowired
-    private CartService cartService;
+    private final ProductRepo productRepo;
+
+    private final CartItemRepo cartItemRepo;
+
 
 
     @Transactional
     public OrderResponseDto placeOrder(User user){
-        List<CartItem> cartItems = cartService.getCartItems(user);
+        List<CartItem> cartItems = cartItemRepo.findByUser(user);
 
         if(cartItems.isEmpty()) throw new RuntimeException("cart is empty") ;
 
         Order order = new Order();
         order.setUser(user);
         order.setOrderDate(LocalDateTime.now());
-        order.setStatus("pending"); 
+        order.setStatus("pending");
 
         List<OrderItems> orderItems =new ArrayList<>();
 
-        double total = 0;
+        BigDecimal total = BigDecimal.ZERO;
 
         for(CartItem cartItem : cartItems){
 
@@ -55,16 +56,18 @@ public class OrderService {
             if(product.getStock() < cartItem.getQuantity()){
                 throw new RuntimeException("product " + product.getName()  +" unavailable" );
             }
-          
+
             product.setStock(product.getStock() - cartItem.getQuantity());
-            
+            productRepo.save(product);
+
             OrderItems item = new OrderItems();
             item.setOrder(order);
+            item.setProduct(product);
             item.setQuantity(cartItem.getQuantity());
-            item.setPriceAtPurchase(cartItem.getProduct().getPrice().doubleValue());
-            item.setProduct(cartItem.getProduct());
+            item.setPriceAtPurchase(product.getPrice());
 
-            total = item.getPriceAtPurchase() * item.getQuantity();
+
+            total = total.add(product.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())));
             orderItems.add(item);
         }
 
@@ -74,24 +77,21 @@ public class OrderService {
         Order saveOrder = orderRepo.save(order);
         cartItemRepo.deleteAll(cartItems);
 
+        return convertToResponseDto(saveOrder);
+
+    }
+
+    private OrderResponseDto convertToResponseDto(Order order){
         OrderResponseDto responseDto = new OrderResponseDto();
         responseDto.setOrderId(order.getId());
         responseDto.setTotalPrice(order.getTotalPrice());
         responseDto.setStatus(order.getStatus());
         responseDto.setUserName(order.getUser().getUserName());
 
-
-        List<OrderItemDto> itemDtos = new ArrayList<>();
-        for(OrderItems oi : saveOrder.getOrderItems()){
-            OrderItemDto oiDto = new OrderItemDto();
-            oiDto.setId(oi.getId());
-            oiDto.setPrice(oi.getPriceAtPurchase());
-            oiDto.setProductName(oi.getProduct().getName());
-            oiDto.setQuantity(oi.getQuantity());
-            itemDtos.add(oiDto);
-        }
-
-        responseDto.setOrderItemDto(itemDtos);
+        List<OrderItemDto> itemDtos = order.getOrderItems().stream()
+        .map(OrderItemDto::new)
+        .toList();
+        responseDto.setItems(itemDtos);
         return responseDto;
     }
 

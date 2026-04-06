@@ -18,7 +18,7 @@ import java.security.Key;
 public class JwtService {
 
 
-    private final String secretKey = "x0v9aF8+Y3k2t7h1F9J5l+ZqR4pD7tVwL6h9sXbQ2nM="; 
+    private final String secretKey = "x0v9aF8+Y3k2t7h1F9J5l+ZqR4pD7tVwL6h9sXbQ2nM=";
 
     private long expireTime = 3600000 ;
 
