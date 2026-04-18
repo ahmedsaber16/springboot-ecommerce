@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,12 +31,13 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("api/admin/categories")
+@RequestMapping("/api/categories")
 public class CategoryController {
 
 
     private final CategoryRepo categoryRepo;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<CategoryDto> addCategory(@Valid @RequestBody Category category) {
         Category savedCategory = categoryRepo.save(category);
@@ -49,6 +51,7 @@ public class CategoryController {
         return ResponseEntity.ok(categoriesDto) ;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteCategory(@PathVariable long id){
         categoryRepo.deleteById(id);
@@ -57,10 +60,10 @@ public class CategoryController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Category> getCatogry(@PathVariable long id) {
+    public ResponseEntity<CategoryDto> getCatogry(@PathVariable long id) {
     Category category = categoryRepo.findById(id)
     .orElseThrow(() -> new RuntimeException("Category not found"));
-        return ResponseEntity.ok(category);
+        return ResponseEntity.ok(new CategoryDto(category));
 
     }
 

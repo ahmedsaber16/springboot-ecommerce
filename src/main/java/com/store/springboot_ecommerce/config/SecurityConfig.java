@@ -2,6 +2,7 @@ package com.store.springboot_ecommerce.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -36,9 +37,13 @@ public class SecurityConfig {
 
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")   // بس ADMIN
                 .requestMatchers("/api/user/**").hasAnyRole("USER","ADMIN") // USER أو ADMIN
-                .requestMatchers("/api/products/**").permitAll()
+                .requestMatchers(HttpMethod.GET , "/api/categories/**").permitAll()
+                .requestMatchers("/api/categories/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.GET ,"/api/products/**").permitAll()
+                .requestMatchers("/api/products/**").hasRole("ADMIN")
                 .requestMatchers("/api/orders/**").authenticated()
                 .requestMatchers("/api/cart/**").authenticated()
+                .requestMatchers("/api/payments/**").authenticated()
 
                 .anyRequest().authenticated()
             )

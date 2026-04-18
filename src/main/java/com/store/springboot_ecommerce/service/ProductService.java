@@ -27,11 +27,17 @@ public class ProductService {
 
 
    //adding products
-    public Product addProduct(Product product , long categoryId){
+    public Product addProduct(ProductDto dto , long categoryId){
         Category category = categoryRepo.findById(categoryId)
                             .orElseThrow(() -> new RuntimeException("category not found with id "+ categoryId));
 
+        Product product = new Product();
+        product.setName(dto.getName());
         product.setCategory(category);
+        product.setDescription(dto.getDescription());
+        product.setPrice(dto.getPrice());
+        product.setStock(dto.getStock());
+
         return productRepo.save(product);
     }
 
@@ -40,19 +46,7 @@ public class ProductService {
 
     //all product
     public List<ProductDto> getAllProduct(){
-        return productRepo.findAll().stream().map(product -> {
-            ProductDto dto = new ProductDto(product);
-            dto.setId(product.getId());
-            dto.setName(product.getName());
-            dto.setDescription(product.getDescription());
-            dto.setPrice(product.getPrice());
-            dto.setStock(product.getStock());
-            if(product.getCategory() != null ){
-                dto.setCategoryName(product.getCategory().getName());
-            }
-
-            return dto;
-        }).toList();
+        return productRepo.findAll().stream().map(ProductDto::new).toList();
     }
 
     // all product for sepcific category

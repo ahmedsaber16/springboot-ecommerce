@@ -36,10 +36,10 @@ public class ProductController {
 
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("add/{categoryId}")
-    public ResponseEntity<Product> addProduct(@RequestBody Product product ,@PathVariable long categoryId) {
+    @PostMapping("/add/{categoryId}")
+    public ResponseEntity<ProductDto> addProduct(@RequestBody ProductDto product ,@PathVariable Long categoryId) {
         Product savedProduct = productService.addProduct(product, categoryId);
-        return new ResponseEntity<>(savedProduct , HttpStatus.CREATED);
+        return new ResponseEntity<>(new ProductDto(savedProduct) , HttpStatus.CREATED);
     }
 
     @GetMapping("/all")
@@ -53,13 +53,13 @@ public class ProductController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<ProductDto> updateProduct(@PathVariable long id, @RequestBody ProductDto product) {
         return ResponseEntity.ok(productService.updateProduct(id, product));
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable long id) {
         productService.deleteProduct(id);
         return ResponseEntity.ok("product is deleted successfully");

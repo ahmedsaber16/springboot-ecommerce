@@ -1,6 +1,8 @@
 package com.store.springboot_ecommerce.service;
 
 
+import java.math.BigDecimal;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -11,8 +13,11 @@ import com.store.springboot_ecommerce.dto.AuthRes;
 import com.store.springboot_ecommerce.dto.LoginReq;
 import com.store.springboot_ecommerce.dto.RegisterReq;
 import com.store.springboot_ecommerce.model.User;
+import com.store.springboot_ecommerce.model.Wallet;
 import com.store.springboot_ecommerce.repository.UserRepo;
+import com.store.springboot_ecommerce.repository.WalletRepo;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -21,10 +26,12 @@ public class UserService {
     private final UserRepo userRepo ;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final WalletRepo walletRepo;
 
 
 
 
+    @Transactional
     public void register(RegisterReq req){
 
         boolean exists = userRepo.findByEmail(req.getEmail()).isPresent();
@@ -37,6 +44,14 @@ public class UserService {
         user.setUserName(req.getUserName());
         user.setPassword(passwordEncoder.encode(req.getPassword()));
         user.setRole("USER");
+
+        User savedUser = userRepo.save(user);
+
+        Wallet wallet = new Wallet();
+        wallet.setUser(savedUser);
+        wallet.setBalance(new BigDecimal("1000.00"));
+        wallet.setVersion(0L);
+        walletRepo.save(wallet);
         userRepo.save(user);
 
     }

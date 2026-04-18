@@ -81,8 +81,10 @@ public class CartService {
 
         @Transactional
     public void deleteItemFromCart(User user ,long productId){
+        CartItem cartItem = cartItemRepo.findByUserAndProductId(user, productId)
+                    .orElseThrow(()-> new RuntimeException("item not found in your cart"));
 
-        cartItemRepo.deleteByUserAndProduct_Id(user , productId);
+        cartItemRepo.delete(cartItem);
     }
 
 

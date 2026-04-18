@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.store.springboot_ecommerce.model.Order;
 import com.store.springboot_ecommerce.model.OrderItems;
+import com.store.springboot_ecommerce.model.OrderStatus;
 import com.store.springboot_ecommerce.model.Product;
 import com.store.springboot_ecommerce.dto.OrderItemDto;
 import com.store.springboot_ecommerce.dto.OrderResponseDto;
@@ -44,7 +45,7 @@ public class OrderService {
         Order order = new Order();
         order.setUser(user);
         order.setOrderDate(LocalDateTime.now());
-        order.setStatus("pending");
+        order.setStatus(OrderStatus.PENDING);;
 
         List<OrderItems> orderItems =new ArrayList<>();
 
@@ -85,7 +86,7 @@ public class OrderService {
         OrderResponseDto responseDto = new OrderResponseDto();
         responseDto.setOrderId(order.getId());
         responseDto.setTotalPrice(order.getTotalPrice());
-        responseDto.setStatus(order.getStatus());
+        responseDto.setStatus(order.getStatus().name());
         responseDto.setUserName(order.getUser().getUserName());
 
         List<OrderItemDto> itemDtos = order.getOrderItems().stream()

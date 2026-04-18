@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
 
-    private UserRepo userRepo ;
+    private final UserRepo userRepo ;
 
     @GetMapping("/me")
     public User me(Authentication authentication){
