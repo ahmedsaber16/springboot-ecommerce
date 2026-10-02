@@ -13,7 +13,7 @@ A REST API for an e-commerce store, built with Spring Boot.
 
 ## Tech Stack
 
-Java, Spring Boot, Spring Security, Spring Data JPA, JWT, Lombok, H2/MySQL
+Java, Spring Boot, Spring Security, Spring Data JPA, JWT, Lombok, MySQL
 
 ## How to Run
 
